@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cicd-deployment
+  labels:
+    app: cicd
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: cicd
+  template:
+    metadata:
+      labels:
+        app: cicd
+    spec:
+      terminationGracePeriodSeconds: 5
+      containers:
+      - name: busybox
+        imagePullPolicy: Always
+        image: kaiwalyakoparkar/busybox:latest
+        ports:
+        - containerPort: 8080
+        env:
+        - name: PORT
+          value: "8080"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: cicd-service
+spec:
+  selector:
+    app: cicd
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 8080
+  type: NodePort
