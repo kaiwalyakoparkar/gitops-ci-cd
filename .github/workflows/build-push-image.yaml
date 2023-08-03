@@ -27,7 +27,7 @@ jobs:
         run: echo "::set-output name=sha_short::$(git rev-parse --short HEAD)"
         
       - name: Generate deploy manifest from Jinja template
-        uses: cuchi/jinja2-action@v1.1.0
+        uses: cuchi/jinja2-action@v1.2.0
         with: 
           template: template/deploy.j2
           output_file: kubernetes/deploy.yaml
