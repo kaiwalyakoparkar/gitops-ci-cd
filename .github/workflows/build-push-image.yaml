@@ -26,9 +26,9 @@ jobs:
         with:
           context: .
           file: /Dockerfile
-          push: true
-          tags: ${{ steps.metadata.outputs.tags }}
-          labels: ${{ steps.metadata.outputs.labels }}      
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }} 
+          push: true     
 
       - name: Get git sha short
         id: vars
