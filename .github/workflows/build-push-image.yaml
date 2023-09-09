@@ -37,8 +37,8 @@ jobs:
           context: .
           # tags: ${{ steps.meta.outputs.tags }}
           # labels: ${{ steps.meta.outputs.labels }}
-          tags: ${{ steps.vars.outputs.run}}
-          labels: ${{ steps.vars.outputs.labels }} 
+          tags: ${{ steps.vars.outputs.sha_short}}
+          labels: ${{ steps.vars.outputs.sha_short }} 
           push: true     
         
       - name: Generate deploy manifest from Jinja template
