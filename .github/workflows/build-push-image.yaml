@@ -32,7 +32,7 @@ jobs:
 
       - name: Get git sha short
         id: vars
-        run: echo "::set-output name=sha_short::$(git rev-parse --short HEAD)"
+        run: echo "name=sha_short::$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
         
       - name: Generate deploy manifest from Jinja template
         uses: cuchi/jinja2-action@v1.2.0
