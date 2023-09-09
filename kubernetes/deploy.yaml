@@ -5,7 +5,7 @@ metadata:
   labels:
     app: cicd
 spec:
-  replicas: 5
+  replicas: 2
   selector:
     matchLabels:
       app: cicd
@@ -18,7 +18,7 @@ spec:
       containers:
       - name: busybox
         imagePullPolicy: Always
-        image: kaiwalyakoparkar/busybox:latest
+        image: kaiwalyakoparkar/busybox:sha-
         ports:
         - containerPort: 8080
         env:
