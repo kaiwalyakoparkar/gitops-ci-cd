@@ -6,7 +6,6 @@ on:
 jobs:
   release-docker:
     name: Release docker image
-    if: '!contains(github.event.head_commit.message, "[skip ci]")'
     runs-on: ubuntu-latest
     steps:
       - name: Check out the repo
@@ -23,13 +22,13 @@ jobs:
           tag_with_sha: true
       
       - name: Build and push Docker image
-        uses: docker/build-push-action@3b5e8027fcad23fda98b2e3ac259d8d67585f671
+        uses: docker/build-push-action@v2
         with:
           context: .
           file: ../Dockerfile
           push: true
-          tags: ${{ steps.meta.outputs.tags }}
-          labels: ${{ steps.meta.outputs.labels }}      
+          tags: ${{ steps.metadata.outputs.tags }}
+          labels: ${{ steps.metadata.outputs.labels }}      
 
       - name: Get git sha short
         id: vars
