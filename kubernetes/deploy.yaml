@@ -18,7 +18,7 @@ spec:
       containers:
       - name: busybox
         imagePullPolicy: Always
-        image: kaiwalyakoparkar/busybox:latest
+        image: kaiwalyakoparkar/busybox:kaiwalyakoparkar/busybox:sha-caed36b
         ports:
         - containerPort: 8080
         env:
