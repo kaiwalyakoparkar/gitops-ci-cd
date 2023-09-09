@@ -48,7 +48,9 @@ jobs:
           output_file: kubernetes/deploy.yaml
           strict: true
           variables: |
-            image_deploy_tag=sha-${{ steps.meta.outputs.tags }}
+            image_deploy_tag=${{ steps.meta.outputs.tags }}
+          run: |
+            echo $image_deploy_tag
             
       - name: Commit deploy manifest on local repo
         run: |
