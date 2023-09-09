@@ -59,3 +59,4 @@ jobs:
         uses: ad-m/github-push-action@master
         with: 
           github_token: ${{ secrets.AUTO_COMMIT_TOKEN }}
+          branch: ${{ github.ref }}
