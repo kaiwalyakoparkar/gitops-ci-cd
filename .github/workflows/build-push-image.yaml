@@ -55,7 +55,8 @@ jobs:
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add .
-          git commit -s -m "[skip ci] Generate deployment manifests" 
+          git commit -s -m "[skip ci] Generate deployment manifests"
+          git pull origin main
           
       - name: Push deploy manifests to local repo
         uses: ad-m/github-push-action@master
