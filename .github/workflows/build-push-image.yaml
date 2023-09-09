@@ -49,8 +49,6 @@ jobs:
           strict: true
           variables: |
             image_deploy_tag=${{ steps.meta.outputs.tags }}
-          run: |
-            echo $image_deploy_tag
             
       - name: Commit deploy manifest on local repo
         run: |
