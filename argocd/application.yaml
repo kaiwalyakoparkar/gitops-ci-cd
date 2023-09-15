@@ -1,0 +1,22 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: argo-application
+  namespace: argocd
+spec:
+  project: default
+  source:
+    #Your repo link here
+    repoURL: https://github.com/kaiwalyakoparkar/gitops-ci-cd.git
+    targetRevision: HEAD
+    #Location where the manifests are stored
+    path: kubernetes/
+  destination: 
+    server: https://kubernetes.default.svc
+    namespace: default
+  syncPolicy:
+    syncOptions:
+    - CreateNamespace=true
+    automated:
+      selfHeal: true
+      prune: true

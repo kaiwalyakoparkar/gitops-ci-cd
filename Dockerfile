@@ -2,4 +2,4 @@
 FROM busybox
 
 # Run the "Hello, World!" command in an infinite loop
-CMD ["/bin/sh", "-c", "while true; do echo 'Hello, World!'; sleep 1; done"]
+CMD ["/bin/sh", "-c", "while true; do echo 'Hello, World v2!'; sleep 1; done"]
